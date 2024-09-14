@@ -1,0 +1,86 @@
+body {
+    font-family: fantasy;
+    background-color: #00b4d8;
+}
+.box1 {
+    display: flex;
+    height: 200px;
+    background-color: #0077b6;
+    justify-content: center;
+}
+
+.ch1 img {
+    width: 200px;
+    height: 180px;
+}
+
+.ch1 a {
+    color: #caf0f8;
+}
+
+.ch2 img {
+    width: 200px;
+    height: 180px;
+    margin-left: 30px;
+}
+
+.ch2 a {
+    color: #caf0f8;
+    margin-left: 30px;
+}
+
+.ch3 img {
+    width: 200px;
+    height: 180px;
+    margin-left: 30px;
+}
+
+.ch3 a {
+    color: #caf0f8;
+    margin-left: 30px;
+}
+
+.yasuobox {
+    display: flex;
+    height: auto;
+    margin-top: 30px;
+}
+
+.yasuobox img {
+    width: 200px;
+    height: 180px;
+}
+
+.yasuotxt {
+    display: inline;
+}
+
+.settbox {
+    display: flex;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.settbox img {
+    width: 200px;
+    height: 180px;
+}
+
+.setttxt {
+    display: inline;
+}
+
+.sylasbox {
+    display: flex;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.sylasbox img {
+    width: 200px;
+    height: 180px;
+}
+
+.sylastxt {
+    display: inline;
+}
