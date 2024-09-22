@@ -1,68 +1,100 @@
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="homestyle.css">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
     <title>LOLlore</title>
 </head>
 <body>
-    <h1>League of Legends</h1>
-    <header>
-        <a href="#" class="logo">LOL lore</a>
-        <nav>
-            <ul>
-                <li><a href="characters.html">Characters</a></li>
-                <li><a href="#">World</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LOL lore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="characters.html">Characters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">World</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
-    <div class="fon" >
-        <h1 align="center">League of Legends</h1>
-        <h3>Creation of the Universe</h3>
-        <div class="box1">
-            <p>In the very beginning, before the existence of time, space or reality there was only the nothingness of the Void, a vast emptiness that acted as the home to entities without form or sentience known as the Watchers. However, this silent nothingness was consumed by the sudden appearance of reality and with it the Multiverse, including Runeterra Prime.
 
-                With this "breath of creation" came the very first Celestials; powerful and enigmatic beings hailing from the newly formed Celestial Realm. These Celestials came in many forms and some were formless, requiring a vessel to contain them. An example of this is the mysterious Bard who possesses a collection of trinkets.
+    <main class="container mt-5">
+        <section class="row mb-4">
+            <div class="col-lg-6 text-white">
+                <h1>League of Legends</h1>
+                <h3>Creation of the Universe</h3>
+                <p>In the very beginning, before the existence of time, space or reality there was only the nothingness of the Void, a vast emptiness that acted as the home to entities without form or sentience known as the Watchers. However, this silent nothingness was consumed by the sudden appearance of reality and with it the Multiverse, including Runeterra Prime. With this "breath of creation" came the very first Celestials; powerful and enigmatic beings hailing from the newly formed Celestial Realm. These Celestials came in many forms and some were formless, requiring a vessel to contain them. An example of this is the mysterious Bard who possesses a collection of trinkets. Other Celestials took the form of Celestial Dragons such as Aurelion Sol and Inviolus Vox. Aurelion Sol began populating the empty space around him by forging stars. From first these stars, small beings called Meeps were formed from the "residual inspiration and thought" that went into forming them. The exact mechanism that grants these Meeps life is known exclusively by Bard, whom they naturally follow on his travels. While forging the stars, Aurelion Sol would also connect some of his creations to form constellations, being capable of granting some of them life and essentially making Celestials in the form of living constellations. Because of reality’s constant expansion into the Void, the Watchers, who had been slumbering in the silence of nothingness, awakened and gained sentience, growing annoyed with the newly formed Multiverse that interrupted their non-existence. At some unknown point in time, the planet Runeterra was formed by an unknown group of beings using World Runes, orbiting one of Aurelion Sol's stars to serve as its sun as well as being accompanied by both a physical and spiritual moon.</p>
+            </div>
+        </section>
 
-                Other Celestials took the form of Celestial Dragons such as Aurelion Sol and Inviolus Vox. Aurelion Sol began populating the empty space around him by forging stars. From first these stars, small beings called Meeps were formed from the "residual inspiration and thought" that went into forming them. The exact mechanism that grants these Meeps life is known exclusively by Bard, whom they naturally follow on his travels. While forging the stars, Aurelion Sol would also connect some of his creations to form constellations, being capable of granting some of them life and essentially making Celestials in the form of living constellations.
-
-                Because of reality’s constant expansion into the Void, the Watchers, who had been slumbering in the silence of nothingness, awakened and gained sentience, growing annoyed with the newly formed Multiverse that interrupted their non-existence.
-
-                At some unknown point in time, the planet Runeterra was formed by an unknown group of beings using World Runes, orbiting one of Aurelion Sol's stars to serve as its sun as well as being accompanied by both a physical and spiritual moon.</p>
-        </div>
-
-        <div class="checkbox-container">
-            <input type="checkbox" id="styled-checkbox">
-            <label for="styled-checkbox">like</label>
-        </div>
-
-        <div class="container1">
-            <div class="widget">Widget 1</div>
-            <div class="widget">Widget 2</div>
-            <div class="widget">Widget 3</div>
-            <div class="widget">Widget 4</div>
-        </div>
-
-        <div class="container2">
-            <div class="cell">Cell 1</div>
-            <div class="cell">Cell 2</div>
-            <div class="cell cell-center">Cell 3</div>
-        </div>
-
-        <div class="box2">
-            <footer class="footer" id="about">
-                <p>The Creator Of The Website</p>
-                <div class="image-container">
-                    <img src="photo_5395644303478481666_y.jpg" alt="LOL Player">
-                    <div class="overlay">Alpysbay Bexultan</div>
+        <section class="carousel slide mb-4" id="carouselExample" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Yasuo_OriginalCentered.jpg" class="rounded mx-auto d-block text-center w-50" alt="Slide 1">
                 </div>
-            </footer>
-        </div>
-    </div>
+                <div class="carousel-item">
+                    <img src="Sett_0.jpg" class="rounded mx-auto d-block text-center w-50" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="Sylas_OriginalCentered.jpg" class="rounded mx-auto d-block text-center w-50" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
 
+        <section class="row mb-4">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="Yasuo_OriginalCentered.jpg" class="card-img-top" alt="Card 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Yasuo</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="Sett_0.jpg" class="card-img-top" alt="Card 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Sett</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="Sylas_OriginalCentered.jpg" class="card-img-top" alt="Card 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sylas</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer bg-light text-center py-3 " id="about">
+        <p>&copy; The Creator of the Website, Alpysbay Bexultan</p>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

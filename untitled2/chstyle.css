@@ -1,86 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: fantasy;
+    list-style: none;
+    text-decoration: none;
+}
+
 body {
     font-family: fantasy;
     background-color: #00b4d8;
+    background: url("BgToCh.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-.box1 {
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
     display: flex;
-    height: 200px;
-    background-color: #0077b6;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    box-shadow: 0 5px 10px #000;
 }
 
-.ch1 img {
-    width: 200px;
-    height: 180px;
+header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    transition: .5s;
 }
 
-.ch1 a {
+header .logo:hover {
+    transform: scale(1.2);
+}
+
+header nav ul li {
+    position: relative;
+    float: left;
+}
+
+header nav ul li a {
+    padding: 15px;
+    color: #000;
+    font-size: 16px;
+    display: block;
+}
+
+header nav ul li a:hover {
+    background: #000;
+    color: #fff;
+}
+
+.card-body a {
     color: #caf0f8;
+    text-decoration: none;
 }
 
-.ch2 img {
-    width: 200px;
-    height: 180px;
-    margin-left: 30px;
-}
-
-.ch2 a {
-    color: #caf0f8;
-    margin-left: 30px;
-}
-
-.ch3 img {
-    width: 200px;
-    height: 180px;
-    margin-left: 30px;
-}
-
-.ch3 a {
-    color: #caf0f8;
-    margin-left: 30px;
-}
-
-.yasuobox {
-    display: flex;
-    height: auto;
-    margin-top: 30px;
-}
-
-.yasuobox img {
-    width: 200px;
-    height: 180px;
-}
-
-.yasuotxt {
-    display: inline;
-}
-
-.settbox {
-    display: flex;
-    height: 200px;
-    margin-top: 30px;
-}
-
-.settbox img {
-    width: 200px;
-    height: 180px;
-}
-
-.setttxt {
-    display: inline;
-}
-
-.sylasbox {
-    display: flex;
-    height: 200px;
-    margin-top: 30px;
-}
-
-.sylasbox img {
-    width: 200px;
-    height: 180px;
-}
-
-.sylastxt {
-    display: inline;
+.card-body a:hover {
+    text-decoration: underline;
 }
