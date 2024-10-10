@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Contactsstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+    <title>LOLlore</title>
+</head>
+<body>
+<header class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">LOL lore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="characters.html">Characters</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">World</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="container my-auto mx-auto" id="datetime"></div>
+
+    <img src="" alt="">
+    <form action="submit_form.php" method="post" align="center">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5"></textarea><br><br>
+        <button type="submit" class="btn_submit">Send Message</button>
+    </form>
+
+<div class="container mt-5">
+    <ul id="todo-list"></ul>
+    <input type="text" id="task" placeholder="New task">
+    <button id="addTaskBtn">Add Task</button>
+</div>
+
+<div class="container mt-5">
+    <form id="sortForm">
+        <input type="text" id="numbers" placeholder="Enter numbers separated by commas">
+        <button type="submit">Sort Numbers</button>
+        <select id="sortOrder">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+        </select>
+    </form>
+    <div id="result"></div>
+
+    <div class="mt-5 mx-5">
+        <button id="changeColorBtn">Change Background Color</button>
+    </div>
+
+</div>
+
+
+
+<div class="container mt-5">
+    <h5>Random Number Guessing Game</h5>
+
+    <p>Guess a number between 1 and 100:</p>
+
+    <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+    <button id="submitGuess">Submit Guess</button>
+
+
+    <div id="feedback"></div>
+</div>
+
+<script src="contact.js"></script>
+
+
+<footer class="footer bg-light text-center py-3 " id="about">
+    <p>&copy; The Creator of the Website, Alpysbay Bexultan</p>
+</footer>
+</body>
+</html>
