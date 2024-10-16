@@ -31,18 +31,14 @@ document.getElementById('addTaskBtn').addEventListener('click', function() {
 document.getElementById('sortForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get user input and the sorting order
     const input = document.getElementById('numbers').value.trim();
     const order = document.getElementById('sortOrder').value;
 
-    // Split input into an array, remove spaces, and convert to numbers
     let numbers = input.split(',').map(num => num.trim()).filter(num => !isNaN(num) && num !== '').map(Number);
 
     if (numbers.length > 0) {
-        // Sort the numbers based on the selected order
         numbers.sort((a, b) => order === 'ascending' ? a - b : b - a);
 
-        // Display the sorted result
         document.getElementById('result').textContent = 'Sorted Numbers: ' + numbers.join(', ');
     } else {
         alert("Please enter valid numbers.");
