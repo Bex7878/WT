@@ -1,3 +1,4 @@
+// Form validation and submission prevention
 document.querySelector('form').addEventListener('submit', function(event) {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
@@ -11,23 +12,81 @@ document.querySelector('form').addEventListener('submit', function(event) {
 });
 
 
+// Task Management Object
+const taskManager = {
+    tasks: [],
+    draggedIndex: null,
+
+    addTask: function(taskText) {
+        this.tasks.push({ text: taskText, isDone: false });
+        this.displayTasks();
+    },
+
+    removeTask: function(index) {
+        this.tasks.splice(index, 1);
+        this.displayTasks();
+    },
+
+    toggleDone: function(index) {
+        this.tasks[index].isDone = !this.tasks[index].isDone;
+        this.displayTasks();
+    },
+
+    swapTasks: function(fromIndex, toIndex) {
+        const temp = this.tasks[fromIndex];
+        this.tasks[fromIndex] = this.tasks[toIndex];
+        this.tasks[toIndex] = temp;
+        this.displayTasks();
+    },
+
+    displayTasks: function() {
+        const taskList = document.getElementById('todo-list');
+        taskList.innerHTML = '';
+
+        this.tasks.forEach((task, index) => {
+            const li = document.createElement('li');
+            li.textContent = task.text;
+
+            if (task.isDone) {
+                li.style.textDecoration = "line-through";
+                li.style.color = "grey";
+            }
+
+            li.setAttribute('draggable', true);
+            li.addEventListener('dragstart', () => {
+                this.draggedIndex = index;
+            });
+
+            li.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            li.addEventListener('drop', () => {
+                this.swapTasks(this.draggedIndex, index);
+            });
+
+            li.addEventListener('click', () => this.toggleDone(index));
+
+            li.addEventListener('dblclick', () => this.removeTask(index));
+
+            taskList.appendChild(li);
+        });
+    }
+};
+
+// Add task button functionality
 document.getElementById('addTaskBtn').addEventListener('click', function() {
     const taskText = document.getElementById('task').value;
     if (taskText.trim() !== "") {
-        const li = document.createElement('li');
-        li.textContent = taskText;
-        document.getElementById('todo-list').appendChild(li);
-
+        taskManager.addTask(taskText);
+        playSound('addTaskSound.mp3');
         document.getElementById('task').value = '';
-
-        li.addEventListener('dblclick', function() {
-            li.remove();
-        });
     } else {
         alert("Task cannot be empty");
     }
 });
 
+// Sorting functionality
 document.getElementById('sortForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -45,23 +104,22 @@ document.getElementById('sortForm').addEventListener('submit', function(event) {
     }
 });
 
-const colors = ['#C3073F', '#6F2232', '#950740', '#1A1A1D'];
+// Background color change
+const colors = ['#C3073F', '#6F2232', '#950740', '#1A1A1D', '#ffffff'];
 let colorIndex = 0;
 
 document.getElementById('changeColorBtn').addEventListener('click', function() {
+    document.body.style.transition = 'background-color 0.5s ease';
     document.body.style.backgroundColor = colors[colorIndex];
     colorIndex = (colorIndex + 1) % colors.length;
 });
 
-function updateDateTime() {
-    const now = new Date();
-    const formattedDateTime = now.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' });
-    document.getElementById('datetime').textContent = formattedDateTime;
-}
+// Toggle between day and night themes
+document.getElementById('themeToggleBtn').addEventListener('click', function() {
+    document.body.classList.toggle('night-mode');
+});
 
-setInterval(updateDateTime, 1000);
-updateDateTime();
-
+// Random number guessing game
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 
@@ -80,9 +138,38 @@ document.getElementById('submitGuess').addEventListener('click', function() {
         document.getElementById('feedback').textContent = "Too low! Try again.";
     } else {
         document.getElementById('feedback').textContent = `Correct! You guessed the number in ${attempts} attempts.`;
+        playSound('CorrectGuessSound.mp3');
         randomNumber = Math.floor(Math.random() * 100) + 1;
         attempts = 0;
     }
 
     document.getElementById('guessInput').value = '';
 });
+
+// Star rating system
+document.querySelectorAll('.star').forEach((star, index) => {
+    star.addEventListener('click', function() {
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i <= index) {
+                s.style.color = 'gold';
+            } else {
+                s.style.color = '';
+            }
+        });
+    });
+});
+
+// Play sound function
+function playSound(soundFile) {
+    const audio = new Audio(soundFile);
+    audio.play();
+}
+
+// Update date and time every second
+function updateDateTime() {
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' });
+    document.getElementById('datetime').textContent = formattedDateTime;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();

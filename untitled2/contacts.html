@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="Contactsstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
-    <title>LOLlore</title>
+    <title>LOL Lore</title>
 </head>
 <body>
 <header class="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,25 +25,34 @@
         </div>
     </div>
 </header>
+
+<!-- Date and Time -->
 <div class="container my-auto mx-auto" id="datetime"></div>
 
-    <img src="" alt="">
-    <form action="submit_form.php" method="post" align="center">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" ><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="5"></textarea><br><br>
-        <button type="submit" class="btn_submit">Send Message</button>
-    </form>
+<!-- Theme toggle button -->
+<div class="container mt-5 text-center">
+    <button id="themeToggleBtn">Toggle Day/Night Mode</button>
+</div>
 
+<!-- Form -->
+<form method="post" align="center">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" ><br><br>
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="5"></textarea><br><br>
+    <button type="submit" class="btn_submit">Send Message</button>
+</form>
+
+<!-- To-Do List -->
 <div class="container mt-5">
     <ul id="todo-list"></ul>
     <input type="text" id="task" placeholder="New task">
     <button id="addTaskBtn">Add Task</button>
 </div>
 
+<!-- Number Sorting -->
 <div class="container mt-5">
     <form id="sortForm">
         <input type="text" id="numbers" placeholder="Enter numbers separated by commas">
@@ -55,31 +64,38 @@
     </form>
     <div id="result"></div>
 
+    <!-- Background color change button -->
     <div class="mt-5 mx-5">
         <button id="changeColorBtn">Change Background Color</button>
     </div>
-
 </div>
 
-
-
+<!-- Random Number Guessing Game -->
 <div class="container mt-5">
     <h5>Random Number Guessing Game</h5>
-
     <p>Guess a number between 1 and 100:</p>
-
     <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
     <button id="submitGuess">Submit Guess</button>
-
-
     <div id="feedback"></div>
 </div>
 
-<script src="contact.js"></script>
+<!-- Star rating system -->
+<div id="rating" class="text-center mt-5">
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+    <span class="star">&#9733;</span>
+</div>
 
+<!-- Audio files for sound effects -->
+<audio id="addTaskSound" src="addTaskSound.mp3"></audio>
+<audio id="correctGuessSound" src="correctGuessSound.mp3"></audio>
 
 <footer class="footer bg-light text-center py-3 " id="about">
     <p>&copy; The Creator of the Website, Alpysbay Bexultan</p>
 </footer>
+
+<script src="contact.js"></script>
 </body>
 </html>

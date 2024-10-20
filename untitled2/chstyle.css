@@ -13,6 +13,7 @@ body {
     background: url("BgToCh.jpg") no-repeat;
     background-size: cover;
     background-position: center;
+
 }
 
 header {
@@ -69,3 +70,5 @@ header nav ul li a:hover {
 .card-title {
     align-content: center;
 }
+
+
