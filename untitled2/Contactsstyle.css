@@ -89,11 +89,18 @@ form button:hover {
 /* Styling for draggable tasks */
 #todo-list li {
     cursor: grab;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 #todo-list li:active {
     cursor: grabbing;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 
 /* Hover effect for task items */
 #todo-list li:hover {

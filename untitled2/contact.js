@@ -74,17 +74,21 @@ const taskManager = {
     }
 };
 
-// Add task button functionality
-document.getElementById('addTaskBtn').addEventListener('click', function() {
-    const taskText = document.getElementById('task').value;
-    if (taskText.trim() !== "") {
-        taskManager.addTask(taskText);
-        playSound('addTaskSound.mp3');
-        document.getElementById('task').value = '';
-    } else {
-        alert("Task cannot be empty");
+// Add task functionality with the "Enter" key
+document.getElementById('task').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        const taskText = document.getElementById('task').value;
+        if (taskText.trim() !== "") {
+            taskManager.addTask(taskText);
+            playSound('addTaskSound.mp3');
+            document.getElementById('task').value = '';
+        } else {
+            alert("Task cannot be empty");
+        }
+        event.preventDefault();
     }
 });
+
 
 // Sorting functionality
 document.getElementById('sortForm').addEventListener('submit', function(event) {
@@ -104,15 +108,27 @@ document.getElementById('sortForm').addEventListener('submit', function(event) {
     }
 });
 
-// Background color change
-const colors = ['#C3073F', '#6F2232', '#950740', '#1A1A1D', '#ffffff'];
-let colorIndex = 0;
-
+// Switch statement to handle background color changes
 document.getElementById('changeColorBtn').addEventListener('click', function() {
-    document.body.style.transition = 'background-color 0.5s ease';
-    document.body.style.backgroundColor = colors[colorIndex];
-    colorIndex = (colorIndex + 1) % colors.length;
+    let colorIndex = Math.floor(Math.random() * 4);
+    switch (colorIndex) {
+        case 0:
+            document.body.style.backgroundColor = '#C3073F';
+            break;
+        case 1:
+            document.body.style.backgroundColor = '#6F2232';
+            break;
+        case 2:
+            document.body.style.backgroundColor = '#950740';
+            break;
+        case 3:
+            document.body.style.backgroundColor = '#1A1A1D';
+            break;
+        default:
+            document.body.style.backgroundColor = '#f0f0f0';
+    }
 });
+
 
 // Toggle between day and night themes
 document.getElementById('themeToggleBtn').addEventListener('click', function() {
