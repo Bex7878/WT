@@ -14,21 +14,28 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
 // Task Management Object
 const taskManager = {
-    tasks: [],
+    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
     draggedIndex: null,
+
+    saveTasks: function() {
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    },
 
     addTask: function(taskText) {
         this.tasks.push({ text: taskText, isDone: false });
+        this.saveTasks();
         this.displayTasks();
     },
 
     removeTask: function(index) {
         this.tasks.splice(index, 1);
+        this.saveTasks();
         this.displayTasks();
     },
 
     toggleDone: function(index) {
         this.tasks[index].isDone = !this.tasks[index].isDone;
+        this.saveTasks();
         this.displayTasks();
     },
 
@@ -36,6 +43,7 @@ const taskManager = {
         const temp = this.tasks[fromIndex];
         this.tasks[fromIndex] = this.tasks[toIndex];
         this.tasks[toIndex] = temp;
+        this.saveTasks();
         this.displayTasks();
     },
 
@@ -73,6 +81,10 @@ const taskManager = {
         });
     }
 };
+
+// Load tasks on page load
+taskManager.displayTasks();
+
 
 // Add task functionality with the "Enter" key
 document.getElementById('task').addEventListener('keydown', function(event) {
@@ -189,3 +201,5 @@ function updateDateTime() {
 }
 setInterval(updateDateTime, 1000);
 updateDateTime();
+
+
