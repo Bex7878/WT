@@ -1,3 +1,98 @@
+
+// DOM Elements
+const registerBtn = document.querySelector('#registerBtn');
+const loginBtn = document.querySelector('#loginBtn');
+const logoutBtn = document.querySelector('#logoutBtn');
+const authModal = new bootstrap.Modal(document.querySelector('#authModal'));
+const logoutModal = new bootstrap.Modal(document.querySelector('#logoutModal'));
+
+// Render Logout Button
+function renderLogoutButton() {
+    const container = document.querySelector('.container');
+    if (!document.querySelector('#logoutButton')) {
+        container.insertAdjacentHTML(
+            'beforeend',
+            '<button id="logoutButton" class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</button>'
+        );
+    }
+}
+
+// Registration Logic
+registerBtn.addEventListener('click', () => {
+    const username = document.querySelector('#registerUsername').value;
+    const password = document.querySelector('#registerPassword').value;
+
+    if (username && password) {
+        if (localStorage.getItem(username)) {
+            alert('User already exists. Please choose a different username.');
+        } else {
+            localStorage.setItem(username, password);
+            alert('Registration successful!');
+            document.querySelector('#registerForm').reset();
+        }
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+// Login Logic
+loginBtn.addEventListener('click', () => {
+    const username = document.querySelector('#loginUsername').value;
+    const password = document.querySelector('#loginPassword').value;
+
+    if (username && password) {
+        if (localStorage.getItem(username) === password) {
+            alert(`Welcome, ${username}!`);
+            authModal.hide();
+            document.querySelector('#loginForm').reset();
+            localStorage.setItem('loggedInUser', username);
+            renderLogoutButton();
+        } else {
+            alert('Invalid username or password.');
+        }
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+// Check logged-in state on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        renderLogoutButton();
+        alert(`Welcome back, ${loggedInUser}!`);
+    }
+});
+
+// Logout Logic
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser');
+    logoutModal.hide();
+    alert('You have logged out.');
+    window.location.reload();
+});
+
+
+// Check logged-in state on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        renderLogoutButton();
+        alert(`Welcome back, ${loggedInUser}!`);
+    }
+});
+
+
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('loggedInUser'); // Clear logged-in state
+    logoutModal.hide();
+    alert('You have logged out.');
+    window.location.reload(); // Refresh the page
+});
+
+
+
+
 // Form validation and submission prevention
 document.querySelector('form').addEventListener('submit', function(event) {
     const name = document.getElementById('name').value;
@@ -5,10 +100,12 @@ document.querySelector('form').addEventListener('submit', function(event) {
     const message = document.getElementById('message').value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
     if (!name || !emailPattern.test(email) || !message) {
         alert("Please fill out all fields correctly.");
         event.preventDefault();
     }
+
 });
 
 
@@ -120,27 +217,38 @@ document.getElementById('sortForm').addEventListener('submit', function(event) {
     }
 });
 
-// Switch statement to handle background color changes
-document.getElementById('changeColorBtn').addEventListener('click', function() {
-    let colorIndex = Math.floor(Math.random() * 4);
-    switch (colorIndex) {
-        case 0:
-            document.body.style.backgroundColor = '#C3073F';
-            break;
-        case 1:
-            document.body.style.backgroundColor = '#6F2232';
-            break;
-        case 2:
-            document.body.style.backgroundColor = '#950740';
-            break;
-        case 3:
-            document.body.style.backgroundColor = '#1A1A1D';
-            break;
-        default:
-            document.body.style.backgroundColor = '#f0f0f0';
+window.addEventListener('load', function() {
+    let savedColor = localStorage.getItem('bgColor');
+    if (savedColor) {
+        document.body.style.backgroundColor = savedColor;
     }
 });
 
+// Switch statement to handle background color changes
+document.getElementById('changeColorBtn').addEventListener('click', function() {
+    let colorIndex = Math.floor(Math.random() * 4);
+    let newColor;
+
+    switch (colorIndex) {
+        case 0:
+            newColor = '#C3073F';
+            break;
+        case 1:
+            newColor = '#6F2232';
+            break;
+        case 2:
+            newColor = '#950740';
+            break;
+        case 3:
+            newColor = '#1A1A1D';
+            break;
+        default:
+            newColor = '#f0f0f0';
+    }
+
+    document.body.style.backgroundColor = newColor;
+    localStorage.setItem('bgColor', newColor);
+});
 
 // Toggle between day and night themes
 document.getElementById('themeToggleBtn').addEventListener('click', function() {
@@ -188,8 +296,8 @@ document.querySelectorAll('.star').forEach((star, index) => {
 });
 
 // Play sound function
-function playSound(soundFile) {
-    const audio = new Audio(soundFile);
+function playSound(sound) {
+    const audio = new Audio(sound);
     audio.play();
 }
 

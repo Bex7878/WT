@@ -229,3 +229,15 @@ body.night-mode form button {
 body.night-mode form button:hover {
     background-color: #950740;
 }
+
+form {
+    margin-bottom: 15px;
+}
+
+.modal-body h5 {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+}

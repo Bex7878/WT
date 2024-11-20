@@ -71,4 +71,62 @@ header nav ul li a:hover {
     align-content: center;
 }
 
+.drag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
 
+.draggable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    padding: 10px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.draggable:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.draggable.dragging {
+    opacity: 0.6;
+    cursor: grabbing;
+}
+
+.droppable {
+    width: 200px;
+    height: 150px;
+    border: 3px dashed #2ecc71;
+    border-radius: 10px;
+    background-color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.droppable h4 {
+    margin-top: 60px;
+    color: #2c3e50;
+}
+
+.droppable:hover {
+    background-color: #d1f7d1;
+}
+
+.droppable.active {
+    background-color: #a2f1a2;
+}
+
+.drag-image {
+    width: 100%;
+    height: 100%;
+}
